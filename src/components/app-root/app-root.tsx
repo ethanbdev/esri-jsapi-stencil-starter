@@ -8,7 +8,7 @@ import { Component, h } from '@stencil/core';
 export class AppRoot {
   render() {
     return (
-      <div class="main">
+      <div class="app-root">
         <header>
           <h1>Stencil - ArcGIS JSAPI Example</h1>
         </header>
