@@ -14,6 +14,11 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface EsriMap {
+        "esriMap": __esri.Map;
+        "fLayer": __esri.FeatureLayer;
+        "mapView": __esri.MapView;
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -34,10 +39,17 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLEsriMapElement extends Components.EsriMap, HTMLStencilElement {
+    }
+    var HTMLEsriMapElement: {
+        prototype: HTMLEsriMapElement;
+        new (): HTMLEsriMapElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "esri-map": HTMLEsriMapElement;
     }
 }
 declare namespace LocalJSX {
@@ -48,10 +60,16 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface EsriMap {
+        "esriMap"?: __esri.Map;
+        "fLayer"?: __esri.FeatureLayer;
+        "mapView"?: __esri.MapView;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "esri-map": EsriMap;
     }
 }
 export { LocalJSX as JSX };
@@ -61,6 +79,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "esri-map": LocalJSX.EsriMap & JSXBase.HTMLAttributes<HTMLEsriMapElement>;
         }
     }
 }
