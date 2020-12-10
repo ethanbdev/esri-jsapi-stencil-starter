@@ -11,6 +11,7 @@ export class EsriMap {
   @Prop() esriMap: __esri.Map;
   @Prop() mapView: __esri.MapView;
   @Prop() fLayer: __esri.FeatureLayer;
+  @Prop() legend: __esri.Legend;
 
   mapDiv!: HTMLDivElement;
   
@@ -38,7 +39,7 @@ export class EsriMap {
       center: [-117.2, 34.05],
     });
     this.mapView.when(() => {
-      console.log("Map view is ready!");
+      this.createLegend();
     });
   }
 
@@ -48,6 +49,14 @@ export class EsriMap {
         <div ref={(mapEl) => this.mapDiv = mapEl as HTMLDivElement} class="map"></div>
       </Host>
     );
+  }
+
+  private async createLegend(): Promise<void> {
+    const [Legend]: [__esri.LegendConstructor] = await loadModules(["esri/widgets/Legend"]);
+    this.legend = new Legend({
+      view: this.mapView,
+    });
+    this.mapView.ui.add(this.legend, "bottom-right");
   }
 
 }

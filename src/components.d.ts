@@ -13,6 +13,7 @@ export namespace Components {
     interface EsriMap {
         "esriMap": __esri.Map;
         "fLayer": __esri.FeatureLayer;
+        "legend": __esri.Legend;
         "mapView": __esri.MapView;
     }
 }
@@ -49,6 +50,7 @@ declare namespace LocalJSX {
     interface EsriMap {
         "esriMap"?: __esri.Map;
         "fLayer"?: __esri.FeatureLayer;
+        "legend"?: __esri.Legend;
         "mapView"?: __esri.MapView;
     }
     interface IntrinsicElements {
