@@ -3,20 +3,22 @@ import { loadModules, setDefaultOptions } from "esri-loader";
 
 @Component({
   tag: 'esri-map',
-  styleUrl: 'esri-map.css',
-  shadow: true,
+  styleUrl: 'esri-map.scss',
 })
 export class EsriMap {
 
   @Prop() esriMap: __esri.Map;
-  @Prop() mapView: __esri.MapView;
   @Prop() fLayer: __esri.FeatureLayer;
   @Prop() legend: __esri.Legend;
+  @Prop() mapView: __esri.MapView;
 
   mapDiv!: HTMLDivElement;
   
+  /**
+   * Component lifecycle functions
+   */
   async componentWillLoad() {
-    setDefaultOptions({ version: "next"});
+    setDefaultOptions({ version: "next", css: true });
     const [Map, FeatureLayer]: [__esri.MapConstructor, __esri.FeatureLayerConstructor] = await loadModules(["esri/Map", "esri/layers/FeatureLayer"]);
     this.esriMap = new Map({
       basemap: "dark-gray-vector",
