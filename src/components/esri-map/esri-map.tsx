@@ -1,9 +1,12 @@
-import { Component, h, Host, Prop } from '@stencil/core';
-import { loadModules, setDefaultOptions } from "esri-loader";
+import { Component, h, Host, Prop } from "@stencil/core";
+import WebMap from "@arcgis/core/WebMap";
+import MapView from "@arcgis/core/views/MapView";
+import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
+import Legend from "@arcgis/core/widgets/legend";
 
 @Component({
-  tag: 'esri-map',
-  styleUrl: 'esri-map.scss',
+  tag: "esri-map",
+  styleUrl: "esri-map.scss",
 })
 export class EsriMap {
 
@@ -18,11 +21,8 @@ export class EsriMap {
    * Component lifecycle functions
    */
   async componentWillLoad() {
-    setDefaultOptions({ version: "next", css: true });
-    const [Map, FeatureLayer]: [__esri.MapConstructor, __esri.FeatureLayerConstructor] = await loadModules(["esri/Map", "esri/layers/FeatureLayer"]);
-    this.esriMap = new Map({
+    this.esriMap = new WebMap({
       basemap: "dark-gray-vector",
-
     });
     this.fLayer = new FeatureLayer({
       url: "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/FCC_Form_477_Fixed_Broadband_June_2019_Version_1_Summary_View/FeatureServer",
@@ -33,7 +33,6 @@ export class EsriMap {
   }
 
   async componentDidLoad() {
-    const [MapView]: [__esri.MapViewConstructor] = await loadModules(["esri/views/MapView"]);
     this.mapView = new MapView({
       container: this.mapDiv,
       map: this.esriMap,
@@ -54,11 +53,9 @@ export class EsriMap {
   }
 
   private async createLegend(): Promise<void> {
-    const [Legend]: [__esri.LegendConstructor] = await loadModules(["esri/widgets/Legend"]);
     this.legend = new Legend({
       view: this.mapView,
     });
     this.mapView.ui.add(this.legend, "bottom-right");
   }
-
 }

@@ -1,2 +1,2 @@
 export { Components, JSX } from './components';
-import '@stencil/router';
+import '@arcgis/core/assets/esri/themes/dark/main.css';

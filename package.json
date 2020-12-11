@@ -8,17 +8,18 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "copy": "ncp ./node_modules/@arcgis/core/assets ./src/assets"
   },
   "devDependencies": {
     "@stencil/core": "^2.0.0",
     "@stencil/sass": "^1.4.1",
-    "@types/jest": "^26.0.18"
+    "@types/jest": "^26.0.18",
+    "ncp": "^2.0.0"
   },
   "license": "MIT",
   "dependencies": {
-    "@esri/calcite-components": "^1.0.0-beta.46",
-    "@types/arcgis-js-api": "^4.17.0",
-    "esri-loader": "^2.16.0"
+    "@arcgis/core": "^4.18.0-next.20201211",
+    "@esri/calcite-components": "^1.0.0-beta.46"
   }
 }

@@ -12,6 +12,7 @@ log.txt
 *.sublime-project
 *.sublime-workspace
 
+src/assets/esri
 .stencil/
 .idea/
 .vscode/
