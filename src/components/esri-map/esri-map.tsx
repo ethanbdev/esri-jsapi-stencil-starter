@@ -48,7 +48,7 @@ export class EsriMap {
   render() {
     return (
       <Host>
-        <div ref={(mapEl) => this.mapDiv = mapEl as HTMLDivElement} class="map"></div>
+        <div ref={(e) => this.mapDiv = e as HTMLDivElement} class="map"></div>
       </Host>
     );
   }
