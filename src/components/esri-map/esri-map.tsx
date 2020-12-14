@@ -10,17 +10,37 @@ import Legend from "@arcgis/core/widgets/legend";
 })
 export class EsriMap {
 
-  @Prop() esriMap: __esri.Map;
-  @Prop() fLayer: __esri.FeatureLayer;
-  @Prop() legend: __esri.Legend;
-  @Prop() mapView: __esri.MapView;
+  /**
+   * https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html
+   */
+  @Prop({ mutable: true }) esriMap: __esri.Map;
 
-  mapDiv!: HTMLDivElement;
+  /**
+   * https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html
+   */
+  @Prop({ mutable: true }) fLayer: __esri.FeatureLayer;
+
+  /**
+   * https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legend.html
+   */
+  @Prop({ mutable: true }) legend: __esri.Legend;
+
+  /**
+   * https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html
+   */
+  @Prop({ mutable: true }) mapView: __esri.MapView;
+
+  /**
+   * Div element container for our map view
+   */
+  private mapDiv!: HTMLDivElement;
   
   /**
-   * Component lifecycle functions
+   * Component lifecycle function
+   * Called once, when component is first connected to DOM
+   * Setup our web map and feature layer
    */
-  async componentWillLoad() {
+  async componentWillLoad(): Promise<void> {
     this.esriMap = new WebMap({
       basemap: "dark-gray-vector",
     });
@@ -32,7 +52,12 @@ export class EsriMap {
     this.esriMap.add(this.fLayer);
   }
 
-  async componentDidLoad() {
+  /**
+   * Component lifecycle function
+   * Called once, after component fully loaded and after first render()
+   * Setup our map view and put into div
+   */
+  async componentDidLoad(): Promise<void> {
     this.mapView = new MapView({
       container: this.mapDiv,
       map: this.esriMap,
@@ -44,10 +69,13 @@ export class EsriMap {
     });
   }
 
-  render() {
+  /**
+   * Render UI
+   */
+  render(): void {
     return (
       <Host>
-        <div ref={(e) => this.mapDiv = e as HTMLDivElement} class="map"></div>
+        <div class="map" ref={(e) => this.mapDiv = e as HTMLDivElement} />
       </Host>
     );
   }

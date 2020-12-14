@@ -6,14 +6,14 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class AppHome {
-  render() {
+  render(): void {
     return (
       <div class="app-home">
-        <header>
-          <h1>Stencil - ArcGIS JSAPI Example</h1>
+        <header class="header">
+          <h1 class="header-text">Stencil - ArcGIS JSAPI Example</h1>
         </header>
-        <main>
-          <esri-map></esri-map>
+        <main class="main">
+          <esri-map />
         </main>
       </div>
     );
