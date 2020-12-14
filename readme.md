@@ -10,7 +10,7 @@ To get started, clone this repo to a new directory. Then run:
 npm install
 ```
 
-followed by:
+Followed by:
 
 ```bash
 npm run init:jsapi
