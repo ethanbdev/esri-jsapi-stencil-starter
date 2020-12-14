@@ -2,7 +2,7 @@
 
 This app provides a starting point to use the [ArcGIS JavaScript API](https://developers.arcgis.com/javascript/) with the new [ES modules](https://www.npmjs.com/package/@arcgis/core). It shows how to render a map view with some default widgets and styling using a really cool dot density visualization from here: https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=visualization-dot-density. I have included some default eslint suggestions and used sass instead of default css.
 
-Started with Stencil starter app found here: (https://github.com/ionic-team/stencil-app-starter)
+Started with Stencil starter app found here: https://github.com/ionic-team/stencil-app-starter
 
 To get started, clone this repo to a new directory. Then run:
 
@@ -10,7 +10,7 @@ To get started, clone this repo to a new directory. Then run:
 npm install
 ```
 
-followed by:
+Followed by:
 
 ```bash
 npm run init:jsapi
