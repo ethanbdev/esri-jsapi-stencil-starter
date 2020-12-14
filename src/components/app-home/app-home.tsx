@@ -12,9 +12,7 @@ export class AppHome {
         <header class="header">
           <h1 class="header-text">Stencil - ArcGIS JSAPI Example</h1>
         </header>
-        <main class="main">
-          <esri-map />
-        </main>
+        <esri-map class="map-component" />
       </div>
     );
   }
