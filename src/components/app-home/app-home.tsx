@@ -2,8 +2,7 @@ import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'app-home',
-  styleUrl: 'app-home.scss',
-  shadow: true,
+  styleUrl: 'app-home.scss'
 })
 export class AppHome {
   render(): void {

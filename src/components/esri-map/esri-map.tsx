@@ -5,10 +5,10 @@ import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import Legend from "@arcgis/core/widgets/legend";
 import Search from "@arcgis/core/widgets/search";
 import DotDensityRenderer from "@arcgis/core/renderers/DotDensityRenderer"
-
+import esriConfig from "@arcgis/core/config";
 @Component({
   tag: "esri-map",
-  styleUrl: "esri-map.scss",
+  styleUrl: "esri-map.scss"
 })
 export class EsriMap {
 
@@ -38,6 +38,7 @@ export class EsriMap {
    * Setup our web map and feature layer
    */
   async componentWillLoad(): Promise<void> {
+    esriConfig.assetsPath = "./assets";
     this.esriMap = new WebMap({
       basemap: "dark-gray-vector",
     });
