@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, h, Host } from "@stencil/core";
 import WebMap from "@arcgis/core/WebMap";
 import MapView from "@arcgis/core/views/MapView";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
@@ -6,6 +6,7 @@ import Legend from "@arcgis/core/widgets/legend";
 import Search from "@arcgis/core/widgets/search";
 import DotDensityRenderer from "@arcgis/core/renderers/DotDensityRenderer"
 import esriConfig from "@arcgis/core/config";
+
 @Component({
   tag: "esri-map",
   styleUrl: "esri-map.scss"
@@ -15,17 +16,17 @@ export class EsriMap {
   /**
    * https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html
    */
-  @Prop({ mutable: true }) esriMap: __esri.Map;
+  private esriMap: __esri.Map;
 
   /**
    * https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html
    */
-  @Prop({ mutable: true }) fLayer: __esri.FeatureLayer;
+  private fLayer: __esri.FeatureLayer;
 
   /**
    * https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html
    */
-  @Prop({ mutable: true }) mapView: __esri.MapView;
+  private mapView: __esri.MapView;
 
   /**
    * Div element container for our map view
@@ -38,6 +39,7 @@ export class EsriMap {
    * Setup our web map and feature layer
    */
   async componentWillLoad(): Promise<void> {
+    // Path to assets relative to the page (src folder in this case)
     esriConfig.assetsPath = "./assets";
     this.esriMap = new WebMap({
       basemap: "dark-gray-vector",

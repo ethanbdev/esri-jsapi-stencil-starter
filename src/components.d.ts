@@ -9,18 +9,6 @@ export namespace Components {
     interface AppHome {
     }
     interface EsriMap {
-        /**
-          * https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html
-         */
-        "esriMap": __esri.Map;
-        /**
-          * https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html
-         */
-        "fLayer": __esri.FeatureLayer;
-        /**
-          * https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html
-         */
-        "mapView": __esri.MapView;
     }
 }
 declare global {
@@ -45,18 +33,6 @@ declare namespace LocalJSX {
     interface AppHome {
     }
     interface EsriMap {
-        /**
-          * https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html
-         */
-        "esriMap"?: __esri.Map;
-        /**
-          * https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html
-         */
-        "fLayer"?: __esri.FeatureLayer;
-        /**
-          * https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html
-         */
-        "mapView"?: __esri.MapView;
     }
     interface IntrinsicElements {
         "app-home": AppHome;
